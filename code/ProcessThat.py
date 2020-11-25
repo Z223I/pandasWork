@@ -85,11 +85,19 @@ class ProcessThat:
 
       return csvFileNames, symbols
 
+
    def combineTotalFiles(self, createTotalFiles=False):
       """
          @brief There is a total file for each stock.  This method concatenates them.
-         @return An array containing the concatenated files.
+                Ultimately, this method creates train, dev and test files for both X and Y.
+         @return 
       """
+      # TODO: Francesco
+      # This method currently creates six files.
+      # Update it to return six equivalent arrays.
+      # There is going to be 10's of million samples.  So, do not continually append to the
+      # arrays because they will get waayy too slow.
+      # Maybe within each file you can append and then append to a master array.
 
       np.random.seed(42)
 
@@ -139,6 +147,7 @@ class ProcessThat:
 
          yIndex = 0
          filenamesY = yPaths
+
          with open(yPathOutTrain, 'w') as outfileTrain:
           with open(yPathOutDev, 'w') as outfileDev:
            with open(yPathOutTest, 'w') as outfileTest:
@@ -156,7 +165,7 @@ class ProcessThat:
                      yIndex += 1
 
 
-      return 1, 2
+      return 1, 2, 3, 4, 5, 6
 
 
    def main( self, userArgs=None ):
